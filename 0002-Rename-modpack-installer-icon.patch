@@ -1,4 +1,4 @@
-From 3331c345cde27c215e74b33006ffa2c586613c9f Mon Sep 17 00:00:00 2001
+From 4fec4260573474ce15e883edfe31f538f76ed7f1 Mon Sep 17 00:00:00 2001
 From: Marko Lindqvist <cazfi74@gmail.com>
 Date: Sat, 18 May 2024 13:14:32 +0300
 Subject: [PATCH 2/2] Rename modpack installer icon
@@ -14,8 +14,9 @@ Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
  ...{freeciv-modpack.png => org.freeciv.gtk4.mp.png} | Bin
  data/icons/Makefile.am                              |  10 +++++-----
  .../freeciv-modpack.png => org.freeciv.gtk4.mp.png} | Bin
+ meson.build                                         |   4 ++--
  tools/fcmp/mpgui_qt.cpp                             |   3 ++-
- 10 files changed, 9 insertions(+), 8 deletions(-)
+ 11 files changed, 11 insertions(+), 10 deletions(-)
  rename data/{freeciv-modpack.png => icons/128x128/org.freeciv.gtk4.mp.png} (100%)
  rename data/icons/16x16/{freeciv-modpack.png => org.freeciv.gtk4.mp.png} (100%)
  rename data/icons/32x32/{freeciv-modpack.png => org.freeciv.gtk4.mp.png} (100%)
@@ -37,10 +38,10 @@ index 7b73181cac..c595e7290c 100644
  Terminal=false
  Type=Application
 diff --git a/data/Makefile.am b/data/Makefile.am
-index e8970454ca..6f22a55e7d 100644
+index 0b0386811a..e22e20f2a4 100644
 --- a/data/Makefile.am
 +++ b/data/Makefile.am
-@@ -56,7 +56,7 @@ DATAPATH_ICONS =
+@@ -53,7 +53,7 @@ DATAPATH_ICONS =
  RULEDITDIRS =
  endif
  if MODINST
@@ -98,8 +99,30 @@ diff --git a/data/icons/128x128/freeciv-modpack.png b/data/org.freeciv.gtk4.mp.p
 similarity index 100%
 rename from data/icons/128x128/freeciv-modpack.png
 rename to data/org.freeciv.gtk4.mp.png
+diff --git a/meson.build b/meson.build
+index 4aaac3b9b5..9fe9422409 100644
+--- a/meson.build
++++ b/meson.build
+@@ -3201,7 +3201,7 @@ i = ['16x16', '32x32', '48x48', '64x64', '128x128']
+ foreach iconsize : i
+     install_data(join_paths('data/icons/', iconsize, 'freeciv-client.png'),
+                  join_paths('data/icons/', iconsize, 'freeciv-server.png'),
+-                 join_paths('data/icons/', iconsize, 'freeciv-modpack.png'),
++                 join_paths('data/icons/', iconsize, 'org.freeciv.gtk4.mp.png'),
+                  join_paths('data/icons/', iconsize, 'freeciv-ruledit.png'),
+                  install_dir : join_paths(get_option('datadir'), 'icons/hicolor', iconsize, 'apps'))
+ endforeach
+@@ -4015,7 +4015,7 @@ fcmp_common = static_library('fcmp_common',
+   )
+ 
+ install_data(
+-  'data/freeciv-modpack.png',
++  'data/org.freeciv.gtk4.mp.png',
+   install_dir : join_paths(get_option('datadir'), 'freeciv')
+   )
+ 
 diff --git a/tools/fcmp/mpgui_qt.cpp b/tools/fcmp/mpgui_qt.cpp
-index 57bb0c6bcb..550bcc1015 100644
+index 79a8032e5a..b60a87d288 100644
 --- a/tools/fcmp/mpgui_qt.cpp
 +++ b/tools/fcmp/mpgui_qt.cpp
 @@ -112,7 +112,8 @@ int main(int argc, char **argv)
@@ -113,5 +136,5 @@ index 57bb0c6bcb..550bcc1015 100644
  
      load_install_info_lists(&fcmp);
 -- 
-2.43.0
+2.45.2
 
